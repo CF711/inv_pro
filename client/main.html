@@ -1,0 +1,128 @@
+<head>
+  <title>Interview Project</title>
+  <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  {{> nav}}
+</body>
+
+<template name="nav">
+  <nav class="navbar navbar-default">
+    <a id="app-name" href="/">Home</a>
+    <ul class="nav nav-pills">
+      <li role="presentation" class="dropdown block-content">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+          <span class="glyphicon glyphicon-user"> </span>
+          <span class="caret" ></span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-right">
+          {{ #if currentUser }}
+            <li><a href="/pages">My Pages</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/" id="logout">Log Out</a></li>
+          {{ else }}
+            <li><a href="/login">Log In</a></li>
+          {{ /if }}
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</template>
+
+<template name="home">
+  <div class="col-sm-12 text-center">
+    {{ #if currentUser }}
+      <a href="/pages">
+        <input type="button" class="col-sm-offset-2 col-sm-8 btn btn-primary" id="pages" value="My Pages" />
+      </a>
+    {{ else }}
+      <div class="col-sm-12 text-center">
+        <p> Please
+          <a href="/login">login </a> to access content. </p>
+      </div>
+    {{ /if }}
+  </div>
+
+</template>
+
+<template name="registration">
+  <div class="col-sm-12 text-center">
+    <div class="well col-sm-offset-3 col-sm-6">
+
+      {{> signup}}
+      {{> login}}
+
+    </div>
+  </div>
+</template>
+
+<template name="signup">
+  <div class="col-sm-6 signup-container">
+    <h4 class="director-text"> Sign Up </h4>
+    <form class="signup-form">
+      <div class="label">Username:</div>
+      <input type="text" id="un-input" class="text-box" name="username"/>
+      <div class="label">Password: </div>
+      <input type="text" id="pwd-input" class="text-box" name="password"/>
+      <input type="submit" class="btn btn-success" value="Sign up" />
+    </form>
+  </div>
+</template>
+
+<template name="login">
+  <div class="col-sm-6 login-container">
+    <h4 class="director-text"> Log In </h4>
+    <form class="login-form">
+      <div class="label">Username:</div>
+      <input type="text" id="un-input" class="text-box" name="username"/>
+      <div class="label">Password: </div> 
+      <input type="text" id="pwd-input" class="text-box" name="password"/>
+      <input type="submit" class="btn btn-success" value="Log In" />
+    </form>
+  </div>
+</template>
+
+<template name="pages">
+  <div class="col-sm-12 text-center">
+    Select which page you would like to post as:
+    <ul>
+      {{# each page in getPages}}
+        <a id="page-link"> {{ page.name }} </a>
+        <br />
+      {{ /each }}
+    </ul>
+  </div>
+</template>
+
+<template name="fblogin">
+  {{ #if currentUser }}
+    <input type="button" id="facebook-login" value="Login to Facebook" />  
+  {{ else }}
+  <div class="col-sm-12 text-center">
+    <p> Please <a href="/login">login </a> to access content. </p>
+  </div>
+  {{ /if }}
+</template>
+
+<template name="post">
+  <div class="alert alert-success col-sm-offset-2 col-sm-8 hidden" id="success-banner">
+    Post was successfully posted.
+  </div>
+
+  <div class="col-sm-12">
+    <div class="col-sm-offset-2 col-sm-8 well">
+        <textarea id="status" name="status-box" rows="4" cols="190" placeholder="Start writing your post here"></textarea>
+        <div class="col-sm-12" id="bottom-publish">
+          <input type="button" value="Publish" id="post-status" class="btn btn-primary" />
+          <span class="glyphicon glyphicon-camera"></span>
+          <span class="social-group">
+            <span class="fa fa-facebook-square"></span>
+            <span class="fa fa-linkedin"></span>
+            <span class="fa fa-twitter"></span>
+            <span class="fa fa-clock-o"></span>
+          </span>
+        </div>
+    </div>
+  </div>
+</template>

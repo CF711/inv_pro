@@ -1,0 +1,114 @@
+/* CSS declarations go here */
+
+body {
+	background-color: gray;
+}
+
+#pages {
+	height: 5em;
+}
+
+.navbar {
+	background-color: black;
+	color: white;
+}
+
+#app-name {
+	padding-top: .2em;
+	margin: .7em .5em .5em .5em;
+	font-size: 24px;
+}
+
+.nav-pills {
+	float: right;
+	margin: .2em .5em;
+}
+
+.dropdown-toggle {
+	vertical-align: center;
+	color: #FFF;
+}
+
+li a:focus {
+	background-color:gray;
+}
+
+li ul {
+	color: gray;
+}
+
+.director-text {
+}
+
+@media (min-width: 768px) {
+	.login-container {
+		border-left: solid 1px gray;
+	}
+}
+input, label {
+	display: block;
+}
+
+.btn-success {
+	margin-top: 1em;
+}
+
+.label {
+	max-width: 100%;
+	margin: 5px 0px;
+	font-weight: bold;
+	font-size: 14px;
+	color: black;
+	float: left;
+	padding: 2.8px 8.4px 4.2px 0px;
+}
+
+.well {
+	background-color: #EEF2F5;
+}
+
+textarea {
+	width: 100%;
+}
+
+#post-status {
+	background-color: #FD452D;
+	color: white;
+	border: solid 1px #FD452D;
+	float: right;
+	font-family: "Courier New", monospace;
+	margin-right: 10px;
+}
+
+#bottom-publish {
+	padding: 10px;
+	background-color: #E1E6EA;
+}
+
+.glyphicon-camera {
+	margin-left: 10px;
+	font-size: 30px;
+	color:#B7BCC2;
+	cursor: pointer;
+}
+
+.social-group {
+	float: right;
+	margin-right: 20px;
+}
+
+.fa {
+	font-size: 30px;
+	margin-left: 5px;
+	cursor: pointer;
+	color: #B7BCC2;
+}
+
+.fa-clock-o {
+	padding-left: 10px;
+	border-left: solid 1px #B7BCC2;
+}
+
+#page-link {
+	cursor: pointer;
+}

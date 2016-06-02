@@ -1,0 +1,11 @@
+{
+  "name": "inv_pro",
+  "private": true,
+  "scripts": {
+    "start": "meteor run"
+  },
+  "dependencies": {
+    "fbgraph": "^0.2.7",
+    "meteor-node-stubs": "~0.2.0"
+  }
+}
