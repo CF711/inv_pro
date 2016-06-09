@@ -75,8 +75,11 @@ Template.pages.events({
 		})
 	},
 
-	'click #page-link': function(event) {
-		var page = Pages.findOne({"name": event.currentTarget.innerText});
+	'click .page-link': function(event) {
+		console.log(event.target.id);
+		var page = Pages.findOne({"id":event.target.id});
+		var id = event.target.id;
+		console.log(page);
 		Session.set('id', page.id);
 		Session.set('name', page.name);
 		Session.set('access', page.accessToken);
@@ -98,13 +101,16 @@ Template.fblogin.events({
 				var url = "https://graph.facebook.com/" + Meteor.user().services.facebook.id + "/accounts?fields=&access_token=" + Meteor.user().services.facebook.accessToken;
 				HTTP.call("GET", url, function(err, result) {
 					if (!err) {
-						for (var page in result.data.data) {
-							var page = {
-								name: page.name,
-								id: page.id,
-								accessToken: page.access_token
+						var pages = result.data.data;
+						for (var page in pages) {
+							var insPage = {
+								name: pages[page].name,
+								id: pages[page].id,
+								accessToken: pages[page].access_token
 							};
-							Pages.insert(page);
+							Pages.insert(insPage);
+
+							console.log(Pages.find().fetch());
 						}
 						Router.go('/pages');
 					}

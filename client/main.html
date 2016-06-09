@@ -88,7 +88,7 @@
     Select which page you would like to post as:
     <ul>
       {{# each page in getPages}}
-        <a id="page-link"> {{ page.name }} </a>
+        <a class="page-link" id="{{page.id}}"> {{ page.name }} </a>
         <br />
       {{ /each }}
     </ul>
